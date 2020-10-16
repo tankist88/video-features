@@ -1,0 +1,14 @@
+APScheduler==3.6.3
+click==7.1.2
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.2
+kafka-python==2.0.2
+MarkupSafe==1.1.1
+pytz==2020.1
+redis==3.5.3
+six==1.15.0
+tzlocal==2.1
+uWSGI==2.0.19.1
+vosk==0.3.14
+Werkzeug==1.0.1
