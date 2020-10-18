@@ -1,9 +1,19 @@
 version: "3"
 services:
+  worker:
+    environment:
+      - PYTHONUNBUFFERED=1
+    image: worker
+    volumes:
+      - video-dir:/youtube-audio:rw
+    depends_on:
+      - redis
   youtube2wav:
     environment:
       - PYTHONUNBUFFERED=1
     image: youtube2wav
+    volumes:
+      - video-dir:/youtube-audio:rw
     ports:
       - "8080:8080"
   voice-recognition:
@@ -41,5 +51,6 @@ services:
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
     depends_on:
       - zookeeper
-volumes:  
+volumes:
   redis_data:
+  video-dir:
