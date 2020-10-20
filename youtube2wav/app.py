@@ -53,7 +53,7 @@ atexit.register(lambda: sched.shutdown(wait=False))
 @app.route('/youtube2wav/download/enqueue/<vidid>', methods=['GET'])
 def download_enqueue(vidid):
     job = q.enqueue_call(
-        func="yt.download_wav", args=(vidid,), result_ttl=5000
+        func="yt.download_wav", args=(vidid,), result_ttl=5000, timeout=600
     )
     result = json.dumps({"status": "success", "jobId": job.get_id()}, ensure_ascii=False, indent=4)
     return Response(result, content_type="application/json; charset=utf-8")

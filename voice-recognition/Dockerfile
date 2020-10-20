@@ -4,18 +4,12 @@ RUN apt-get update -y
 RUN apt-get install -y python3-dev build-essential nginx
 
 RUN \
-mkdir -p /wavfiles && \
-mkdir -p /app
-
-RUN \
-chown -R 33:33 /wavfiles && \
-chmod -R 766 /wavfiles
-
-VOLUME /wavfiles
+mkdir -p /app && \
+chown -R 33:33 /app && \
+chmod 744 /app
 
 WORKDIR /app
 
-COPY vosk-model /app/vosk-model
 COPY requirements.txt /app
 RUN pip install -r requirements.txt --src /usr/local/src
 
