@@ -18,7 +18,7 @@ LOCK_PERIOD_HOURS = 1
 
 cache = redis.Redis(host='redis', port=6379)
 app = Flask(__name__)
-q = Queue(connection=cache)
+q = Queue(name="q_download", connection=cache)
 
 
 def clean_video():

@@ -12,8 +12,6 @@
 *last_data_update.txt
 /templates
 /vosk-model
-/test
-/feature-extractor
 data*.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,7 +1,7 @@
 import redis
 from rq import Worker, Queue, Connection
 
-listen = ['default']
+listen = ['q_recognize']
 
 conn = redis.Redis(host='redis', port=6379)
 

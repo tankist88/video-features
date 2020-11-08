@@ -1,8 +1,8 @@
-# Worker 
+# worker-recognize
 
 ## Build
 ````shell script
-cd worker
+cd worker-recognize
 mkdir vosk-model
 ````
 
@@ -10,7 +10,7 @@ mkdir vosk-model
 3) Extract model from archive to ````vosk-model```` directory
 4) Build docker image
 ````shell script
-docker build -t worker .
+docker build -t worker-recognize .
 ````
 ## Run
 ````shell script

@@ -1,11 +1,9 @@
 FROM python:3.8
 
 RUN apt-get update -y
-RUN apt-get install -y python3-dev build-essential ffmpeg curl supervisor
+RUN apt-get install -y python3-dev build-essential supervisor
 
 RUN \
-curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl && \
-chmod a+rx /usr/local/bin/youtube-dl && \
 mkdir -p /app && \
 chown -R 33:33 /app && \
 chmod 744 /app && \
@@ -25,7 +23,6 @@ COPY vosk-model /app/vosk-model
 COPY requirements.txt /app
 RUN pip install -r requirements.txt --src /usr/local/src
 
-COPY yt.py /app
 COPY vr.py /app
 COPY worker.py /app
 COPY supervisord.conf /app
